@@ -12,18 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var coordinator: MainCoordinator?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let navController = UINavigationController()
-        coordinator = MainCoordinator(navigationController: navController)
-        coordinator?.start()
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navController
+        //since we're not building our app's forecast frames in Storyboard
+        window = UIWindow()
         window?.makeKeyAndVisible()
+        
+//        let randomViewController = UIViewController()
+//        randomViewController.view.backgroundColor = .purple
+        
+        //MARK:- building UICollectionViewCells
+        let layout = UICollectionViewFlowLayout()
+        let forecastFrameController = ForecastFrameController(collectionViewLayout: layout)
+        window?.rootViewController = forecastFrameController
         
         return true
     }

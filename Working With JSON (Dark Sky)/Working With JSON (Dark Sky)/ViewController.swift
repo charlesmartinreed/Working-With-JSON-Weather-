@@ -8,16 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, Storyboarded {
+class ViewController: UIViewController {
 
     //MARK:- Properties
-    weak var coordinator: MainCoordinator?
+    //weak var coordinator: MainCoordinator? //not currently using coordinator pattern
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.orange
-        title = "JSON Basics?"
         
         Weather.forecast(withLocation: "32.7767,96.7970") { (results: [Weather]) in
             for result in results {
