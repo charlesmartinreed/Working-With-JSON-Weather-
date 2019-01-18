@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ForecastFrameCell" customModule="Working_With_JSON__Dark_Sky_" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -64,6 +64,12 @@
                 <constraint firstItem="kun-xd-70z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="v0o-B3-9Ay"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="highTempLabel" destination="j9n-3h-0sw" id="ASw-DY-ZIU"/>
+                <outlet property="iconImageView" destination="kun-xd-70z" id="dw9-24-8r4"/>
+                <outlet property="lowTempLabel" destination="ugr-Ct-diq" id="hSO-7k-Q6Y"/>
+                <outlet property="summaryLabel" destination="pzv-4c-Gen" id="ADp-KW-ZTV"/>
+            </connections>
             <point key="canvasLocation" x="87.200000000000003" y="48.125937031484263"/>
         </view>
     </objects>

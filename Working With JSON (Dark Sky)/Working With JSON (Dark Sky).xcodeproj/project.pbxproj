@@ -15,6 +15,7 @@
 		8C92792221F2711D006B2880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C92792021F2711D006B2880 /* LaunchScreen.storyboard */; };
 		8C92793021F27731006B2880 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C92792F21F27731006B2880 /* Weather.swift */; };
 		8C92793221F2834D006B2880 /* ForecastFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C92793121F2834D006B2880 /* ForecastFrame.xib */; };
+		8CD15A7A21F2922400527A47 /* ForecastFrameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15A7921F2922400527A47 /* ForecastFrameCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8C92792321F2711D006B2880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C92792F21F27731006B2880 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8C92793121F2834D006B2880 /* ForecastFrame.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastFrame.xib; sourceTree = "<group>"; };
+		8CD15A7921F2922400527A47 /* ForecastFrameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastFrameCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				8C92791721F2711B006B2880 /* AppDelegate.swift */,
 				8C92792F21F27731006B2880 /* Weather.swift */,
 				8C2FC8B721F28C1000552E5D /* ForecastFrameController.swift */,
+				8CD15A7921F2922400527A47 /* ForecastFrameCell.swift */,
 				8C92793121F2834D006B2880 /* ForecastFrame.xib */,
 				8C92791921F2711B006B2880 /* ViewController.swift */,
 				8C92791B21F2711B006B2880 /* Main.storyboard */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CD15A7A21F2922400527A47 /* ForecastFrameCell.swift in Sources */,
 				8C2FC8B821F28C1000552E5D /* ForecastFrameController.swift in Sources */,
 				8C92791A21F2711B006B2880 /* ViewController.swift in Sources */,
 				8C92791821F2711B006B2880 /* AppDelegate.swift in Sources */,
