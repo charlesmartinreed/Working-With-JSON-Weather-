@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        randomViewController.view.backgroundColor = .purple
         
         //MARK:- building UICollectionViewCells
-        let layout = UICollectionViewFlowLayout() 
+        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
         let forecastFrameController = ForecastFrameController(collectionViewLayout: layout)

@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol ForecastSearchBarDelegate {
-    func didTapSearchButton()
-    func retrieveWeatherForLocation(userLocation: String)
-}
-
 class ForecastFrameCell : UICollectionViewCell {
     
     //MARK: IBOutlets
@@ -20,9 +15,7 @@ class ForecastFrameCell : UICollectionViewCell {
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var highTempLabel: UILabel!
     @IBOutlet weak var lowTempLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    var delegate: ForecastSearchBarDelegate?
+    @IBOutlet weak var dayLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +27,7 @@ class ForecastFrameCell : UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     public func configure(with weather: Weather) {
@@ -41,17 +35,14 @@ class ForecastFrameCell : UICollectionViewCell {
         summaryLabel.text = weather.summary
         highTempLabel.text = "HI:\(Int(weather.highTemperature))"
         lowTempLabel.text = "LO:\(Int(weather.lowTemperature))"
+        
+        //convert the time stamp into a day of the week
+        let date = Date(timeIntervalSince1970: weather.timestamp)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE" //full name of week
+        let day = formatter.string(from: date)
+        dayLabel.text = day
+        
     }
     
-}
-
-extension ForecastFrameCell : UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        delegate?.didTapSearchButton()
-        
-        //if neither empty, we can use the search bar string as our location
-        if let locationString = searchBar.text, !locationString.isEmpty {
-            delegate?.retrieveWeatherForLocation(userLocation: locationString)
-        }
-    }
 }

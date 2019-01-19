@@ -14,6 +14,7 @@ struct Weather {
     let icon: String //used for images
     let highTemperature: Double
     let lowTemperature: Double
+    let timestamp: TimeInterval //time is returned from the API as a UNIX Timestamp
     
     //since JSON serialization throws, we'll use an enum to encapuslate our potential fail states
     enum SerializationError: Error {
@@ -27,11 +28,13 @@ struct Weather {
         guard let icon = json["icon"] as? String else { throw SerializationError.missing("Weather icon is not available for the retrieved data")}
         guard let highTemperature = json["temperatureHigh"] as? Double else { throw SerializationError.missing("High temperature info is not available for the retreived data")}
         guard let lowTemperature = json["temperatureLow"] as? Double else { throw SerializationError.missing("Low temperature info is not available for the retrieved data")}
+        guard let timestamp = json["time"] as? TimeInterval else { throw SerializationError.missing("Timestamp not available for the retrieved data")}
         
         self.summary = summary
         self.icon = icon
         self.highTemperature = highTemperature
         self.lowTemperature = lowTemperature
+        self.timestamp = timestamp
     }
     
     //define basePath for API calls - uses personal API key

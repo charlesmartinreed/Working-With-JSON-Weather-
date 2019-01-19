@@ -14,7 +14,6 @@ class ForecastFrameController : UICollectionViewController {
     //MARK:- Properties
     let cellIdentifier = "ForecastCell"
     var colors: [UIColor] = [.red, .orange, .blue, .purple]
-    var location = "32.7767,96.7970" //Dallas
     var forecasts = [Weather]()
     
     override func viewDidLoad() {
@@ -24,13 +23,11 @@ class ForecastFrameController : UICollectionViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        
         updateWeatherForLocation(location: "Dallas")
         
         //collectionView.backgroundColor = .white
         collectionView.register(UINib.init(nibName: "ForecastFrame", bundle: Bundle.main), forCellWithReuseIdentifier: cellIdentifier)
         collectionView.isPagingEnabled = true //using the bounds of a cell, we denote where the app's layout should "snap" to.
-        
     }
     
     func updateWeatherForLocation(location: String) {
@@ -53,19 +50,7 @@ class ForecastFrameController : UICollectionViewController {
             }
         }
     }
-    
-//    func getForecastData() {
-//        Weather.forecast(withLocation: self.location) { (results: [Weather]?) in
-//            if let weatherData = results {
-//                self.forecasts = weatherData
-//
-//                DispatchQueue.main.async {
-//                    self.collectionView.reloadData()
-//                    }
-//                }
-//            }
-//        }
-    
+
     //MARK:- collectionView delegate methods
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return forecasts.count
@@ -77,7 +62,6 @@ class ForecastFrameController : UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ForecastFrameCell
         cell.configure(with: weatherObject)
-        cell.delegate = self
         //let weatherImage = UIImage(named: weatherObject.icon)
         
 //        cell.iconImageView.image = weatherImage
@@ -97,20 +81,8 @@ class ForecastFrameController : UICollectionViewController {
 
 //MARK:- flow layout delegate methods
 extension ForecastFrameController : UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
-}
-
-//MARK: search bar delegate methods
-extension ForecastFrameController : ForecastSearchBarDelegate {
-    func retrieveWeatherForLocation(userLocation: String) {
-        //update location
-    }
-    
-    func didTapSearchButton() {
-        resignFirstResponder()
-    }
-    
 }
