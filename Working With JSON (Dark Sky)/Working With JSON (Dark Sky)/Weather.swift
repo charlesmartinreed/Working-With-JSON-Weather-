@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 struct Weather {
     let summary: String //weather desc
@@ -36,10 +37,14 @@ struct Weather {
     //define basePath for API calls - uses personal API key
     static let basePath = "https://api.darksky.net/forecast/27809acca85d52025f0ed66c9603ed47/"
     
-    static func forecast(withLocation location: String, completion: @escaping ([Weather]?) -> ()) {
+    //because this is "static", it isn't tied to the instance - it's tied to the class.
+    static func forecast(withLocation location: CLLocation, completion: @escaping ([Weather]?) -> ()) {
         
         //define the url
-        let url = basePath + location //pair of coordinates
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        
+        let url = "\(basePath)\(lat),\(lon)" //pair of coordinates
         let request = URLRequest(url: URL(string: url)!)
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in

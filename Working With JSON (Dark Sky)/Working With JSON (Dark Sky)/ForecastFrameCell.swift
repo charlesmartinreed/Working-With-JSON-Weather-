@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ForecastSearchBarDelegate {
+    func didTapSearchButton()
+    func retrieveWeatherForLocation(userLocation: String)
+}
+
 class ForecastFrameCell : UICollectionViewCell {
     
     //MARK: IBOutlets
@@ -15,6 +20,9 @@ class ForecastFrameCell : UICollectionViewCell {
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var highTempLabel: UILabel!
     @IBOutlet weak var lowTempLabel: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var delegate: ForecastSearchBarDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,4 +43,15 @@ class ForecastFrameCell : UICollectionViewCell {
         lowTempLabel.text = "LO:\(Int(weather.lowTemperature))"
     }
     
+}
+
+extension ForecastFrameCell : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        delegate?.didTapSearchButton()
+        
+        //if neither empty, we can use the search bar string as our location
+        if let locationString = searchBar.text, !locationString.isEmpty {
+            delegate?.retrieveWeatherForLocation(userLocation: locationString)
+        }
+    }
 }

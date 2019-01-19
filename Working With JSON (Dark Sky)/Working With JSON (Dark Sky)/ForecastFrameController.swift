@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ForecastFrameController : UICollectionViewController {
     
     //MARK:- Properties
     let cellIdentifier = "ForecastCell"
     var colors: [UIColor] = [.red, .orange, .blue, .purple]
-    let location = "32.7767,96.7970" //Dallas
+    var location = "32.7767,96.7970" //Dallas
     var forecasts = [Weather]()
     
     override func viewDidLoad() {
@@ -23,7 +24,8 @@ class ForecastFrameController : UICollectionViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        getForecastData()
+        
+        updateWeatherForLocation(location: "Dallas")
         
         //collectionView.backgroundColor = .white
         collectionView.register(UINib.init(nibName: "ForecastFrame", bundle: Bundle.main), forCellWithReuseIdentifier: cellIdentifier)
@@ -31,17 +33,38 @@ class ForecastFrameController : UICollectionViewController {
         
     }
     
-    func getForecastData() {
-        Weather.forecast(withLocation: self.location) { (results: [Weather]?) in
-            if let weatherData = results {
-                self.forecasts = weatherData
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                    }
+    func updateWeatherForLocation(location: String) {
+        //we'll have to attempt to geocode the passed string
+        CLGeocoder().geocodeAddressString(location) { (placemarks: [CLPlacemark]?, error: Error?) in
+            if error == nil {
+                //everything was OK! Try to get the location as a set of coords
+                if let location = placemarks?.first?.location {
+                    //if we got the location, call Weather's forecasting method
+                    Weather.forecast(withLocation: location, completion: { (results: [Weather]?) in
+                        if let weatherData = results {
+                            self.forecasts = weatherData
+                            
+                            DispatchQueue.main.async {
+                                self.collectionView.reloadData()
+                            }
+                        }
+                    })
                 }
             }
         }
+    }
+    
+//    func getForecastData() {
+//        Weather.forecast(withLocation: self.location) { (results: [Weather]?) in
+//            if let weatherData = results {
+//                self.forecasts = weatherData
+//
+//                DispatchQueue.main.async {
+//                    self.collectionView.reloadData()
+//                    }
+//                }
+//            }
+//        }
     
     //MARK:- collectionView delegate methods
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -54,6 +77,7 @@ class ForecastFrameController : UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ForecastFrameCell
         cell.configure(with: weatherObject)
+        cell.delegate = self
         //let weatherImage = UIImage(named: weatherObject.icon)
         
 //        cell.iconImageView.image = weatherImage
@@ -77,4 +101,16 @@ extension ForecastFrameController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
+}
+
+//MARK: search bar delegate methods
+extension ForecastFrameController : ForecastSearchBarDelegate {
+    func retrieveWeatherForLocation(userLocation: String) {
+        //update location
+    }
+    
+    func didTapSearchButton() {
+        resignFirstResponder()
+    }
+    
 }
