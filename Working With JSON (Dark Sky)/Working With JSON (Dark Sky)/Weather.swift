@@ -36,13 +36,13 @@ struct Weather {
     //define basePath for API calls - uses personal API key
     static let basePath = "https://api.darksky.net/forecast/27809acca85d52025f0ed66c9603ed47/"
     
-    static func forecast(withLocation location: String, completion: @escaping ([Weather]) -> ()) {
+    static func forecast(withLocation location: String, completion: @escaping ([Weather]?) -> ()) {
         
         //define the url
         let url = basePath + location //pair of coordinates
         let request = URLRequest(url: URL(string: url)!)
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             //handle the data we get from the request
             var forecastArray = [Weather]()
             
@@ -68,8 +68,8 @@ struct Weather {
                 //call your completion handler here to trigger the process
                 completion(forecastArray)
             }
+            
         }
-        
         task.resume()
     }
 }

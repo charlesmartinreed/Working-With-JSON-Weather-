@@ -37,7 +37,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001-cloud" translatesAutoresizingMaskIntoConstraints="NO" id="kun-xd-70z">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kun-xd-70z">
                     <rect key="frame" x="59.5" y="60" width="256" height="256"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="256" id="QQF-IK-71M"/>
@@ -73,7 +73,4 @@
             <point key="canvasLocation" x="87.200000000000003" y="48.125937031484263"/>
         </view>
     </objects>
-    <resources>
-        <image name="001-cloud" width="460.79998779296875" height="460.79998779296875"/>
-    </resources>
 </document>

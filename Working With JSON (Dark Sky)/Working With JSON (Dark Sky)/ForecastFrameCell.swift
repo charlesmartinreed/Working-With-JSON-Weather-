@@ -18,11 +18,21 @@ class ForecastFrameCell : UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    public func configure(with weather: Weather) {
+        iconImageView.image = UIImage(named: weather.icon)
+        summaryLabel.text = weather.summary
+        highTempLabel.text = "HI:\(Int(weather.highTemperature))"
+        lowTempLabel.text = "LO:\(Int(weather.lowTemperature))"
     }
     
 }

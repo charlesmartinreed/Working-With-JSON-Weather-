@@ -11,17 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     //MARK:- Properties
-    //weak var coordinator: MainCoordinator? //not currently using coordinator pattern
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        Weather.forecast(withLocation: "32.7767,96.7970") { (results: [Weather]) in
-            for result in results {
-                print("\(result)\n\n")
-            }
-        }
+//        Weather.forecast(withLocation: "32.7767,96.7970") { (results: [Weather]) in
+//            for result in results {
+//                print("\(result)\n\n")
+//            }
+//        }
     }
 
 }
