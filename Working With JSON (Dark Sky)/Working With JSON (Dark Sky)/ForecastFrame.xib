@@ -17,13 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW:63" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugr-Ct-diq">
-                    <rect key="frame" x="8" y="595" width="359" height="48"/>
+                    <rect key="frame" x="8" y="563" width="359" height="48"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HI:90" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9n-3h-0sw">
-                    <rect key="frame" x="8" y="519" width="359" height="60"/>
+                    <rect key="frame" x="8" y="495" width="359" height="60"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -51,6 +51,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gfy-iP-cTQ">
+                    <rect key="frame" x="168" y="610" width="39" height="37"/>
+                    <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -59,10 +64,11 @@
                 <constraint firstItem="ugr-Ct-diq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4QT-if-40F"/>
                 <constraint firstItem="j9n-3h-0sw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="5Jf-Ow-n2C"/>
                 <constraint firstItem="b39-HL-6fw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5aY-gt-1PX"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ugr-Ct-diq" secondAttribute="bottom" constant="24" id="6Yq-sw-gEj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ugr-Ct-diq" secondAttribute="bottom" constant="56" id="6Yq-sw-gEj"/>
                 <constraint firstItem="b39-HL-6fw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="8CF-9v-G8l"/>
                 <constraint firstItem="kun-xd-70z" firstAttribute="top" secondItem="b39-HL-6fw" secondAttribute="bottom" constant="30" id="Hw2-E6-iIp"/>
-                <constraint firstItem="ugr-Ct-diq" firstAttribute="top" secondItem="j9n-3h-0sw" secondAttribute="bottom" constant="16" id="JAF-sk-jem"/>
+                <constraint firstItem="ugr-Ct-diq" firstAttribute="top" secondItem="j9n-3h-0sw" secondAttribute="bottom" constant="8" id="JAF-sk-jem"/>
+                <constraint firstItem="gfy-iP-cTQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Jn3-nw-nb9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="j9n-3h-0sw" secondAttribute="trailing" constant="8" id="Ka5-UC-qlF"/>
                 <constraint firstItem="ugr-Ct-diq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="O31-ce-FFg"/>
                 <constraint firstItem="pzv-4c-Gen" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="OCR-Uu-dSQ"/>
@@ -70,8 +76,10 @@
                 <constraint firstItem="kun-xd-70z" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aHq-ZU-hv2"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pzv-4c-Gen" secondAttribute="trailing" constant="24" id="dDr-yb-yeo"/>
                 <constraint firstItem="j9n-3h-0sw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="g5E-kb-KkL"/>
+                <constraint firstItem="gfy-iP-cTQ" firstAttribute="top" secondItem="ugr-Ct-diq" secondAttribute="bottom" constant="-1" id="o8B-WR-ydc"/>
                 <constraint firstItem="pzv-4c-Gen" firstAttribute="top" secondItem="kun-xd-70z" secondAttribute="bottom" constant="8" id="qFS-KD-OSP"/>
                 <constraint firstItem="b39-HL-6fw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="td3-J2-Y8R"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gfy-iP-cTQ" secondAttribute="bottom" constant="20" id="wuC-gn-dTA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
@@ -79,6 +87,7 @@
                 <outlet property="highTempLabel" destination="j9n-3h-0sw" id="ASw-DY-ZIU"/>
                 <outlet property="iconImageView" destination="kun-xd-70z" id="dw9-24-8r4"/>
                 <outlet property="lowTempLabel" destination="ugr-Ct-diq" id="hSO-7k-Q6Y"/>
+                <outlet property="pageControl" destination="gfy-iP-cTQ" id="rMo-Ed-UGT"/>
                 <outlet property="summaryLabel" destination="pzv-4c-Gen" id="ADp-KW-ZTV"/>
             </connections>
             <point key="canvasLocation" x="87.200000000000003" y="48.125937031484263"/>

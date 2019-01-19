@@ -16,6 +16,7 @@ class ForecastFrameCell : UICollectionViewCell {
     @IBOutlet weak var highTempLabel: UILabel!
     @IBOutlet weak var lowTempLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +31,7 @@ class ForecastFrameCell : UICollectionViewCell {
         
     }
     
-    public func configure(with weather: Weather) {
+    public func configure(with weather: Weather, atIndex: Int, totalIndices: Int) {
         iconImageView.image = UIImage(named: weather.icon)
         summaryLabel.text = weather.summary
         highTempLabel.text = "HI:\(Int(weather.highTemperature))"
@@ -42,6 +43,9 @@ class ForecastFrameCell : UICollectionViewCell {
         formatter.dateFormat = "EEEE" //full name of week
         let day = formatter.string(from: date)
         dayLabel.text = day
+        
+        pageControl.currentPage = atIndex
+        pageControl.numberOfPages = totalIndices
         
     }
     

@@ -13,8 +13,18 @@ class ForecastFrameController : UICollectionViewController {
     
     //MARK:- Properties
     let cellIdentifier = "ForecastCell"
-    var colors: [UIColor] = [.red, .orange, .blue, .purple]
     var forecasts = [Weather]()
+    
+//    lazy var pageControl: UIPageControl = {
+//        let pc = UIPageControl()
+//        pc.currentPage = 0
+//        pc.numberOfPages = forecasts.count
+//        pc.currentPageIndicatorTintColor = .black
+//        pc.pageIndicatorTintColor = .lightGray
+//
+//        return pc
+//    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,16 +71,13 @@ class ForecastFrameController : UICollectionViewController {
         let weatherObject = forecasts[indexPath.item]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ForecastFrameCell
-        cell.configure(with: weatherObject)
-        //let weatherImage = UIImage(named: weatherObject.icon)
-        
-//        cell.iconImageView.image = weatherImage
-//        cell.summaryLabel.text = weatherObject.summary
-//        cell.highTempLabel.text = "\(Int(weatherObject.highTemperature))"
-//        cell.lowTempLabel.text = "\(Int(weatherObject.lowTemperature))"
-        //cell.configure(with: weatherObject)
+        cell.configure(with: weatherObject, atIndex: indexPath.item, totalIndices: forecasts.count)
         
         return cell
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
     }
     
     //fix for the spacing issue that occurs between individual cells/sections
@@ -85,4 +92,5 @@ extension ForecastFrameController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
+    
 }

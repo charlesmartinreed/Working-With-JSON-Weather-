@@ -15,7 +15,6 @@
 		8C92793221F2834D006B2880 /* ForecastFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C92793121F2834D006B2880 /* ForecastFrame.xib */; };
 		8CD15A7A21F2922400527A47 /* ForecastFrameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15A7921F2922400527A47 /* ForecastFrameCell.swift */; };
 		8CD15A7C21F29A7D00527A47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CD15A7B21F29A7D00527A47 /* Assets.xcassets */; };
-		8CE246C621F30BC8001A3CC0 /* ForecastFrameHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE246C521F30BC8001A3CC0 /* ForecastFrameHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 		8C92793121F2834D006B2880 /* ForecastFrame.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastFrame.xib; sourceTree = "<group>"; };
 		8CD15A7921F2922400527A47 /* ForecastFrameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastFrameCell.swift; sourceTree = "<group>"; };
 		8CD15A7B21F29A7D00527A47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8CE246C521F30BC8001A3CC0 /* ForecastFrameHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastFrameHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,6 @@
 				8C2FC8B721F28C1000552E5D /* ForecastFrameController.swift */,
 				8CD15A7921F2922400527A47 /* ForecastFrameCell.swift */,
 				8C92793121F2834D006B2880 /* ForecastFrame.xib */,
-				8CE246C521F30BC8001A3CC0 /* ForecastFrameHeader.xib */,
 				8C92791B21F2711B006B2880 /* Main.storyboard */,
 				8C92792021F2711D006B2880 /* LaunchScreen.storyboard */,
 				8CD15A7B21F29A7D00527A47 /* Assets.xcassets */,
@@ -136,7 +133,6 @@
 			files = (
 				8C92793221F2834D006B2880 /* ForecastFrame.xib in Resources */,
 				8C92792221F2711D006B2880 /* LaunchScreen.storyboard in Resources */,
-				8CE246C621F30BC8001A3CC0 /* ForecastFrameHeader.xib in Resources */,
 				8CD15A7C21F29A7D00527A47 /* Assets.xcassets in Resources */,
 				8C92791D21F2711B006B2880 /* Main.storyboard in Resources */,
 			);
