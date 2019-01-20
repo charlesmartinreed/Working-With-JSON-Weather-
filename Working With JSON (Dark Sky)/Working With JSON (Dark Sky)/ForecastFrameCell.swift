@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol UISearchBarDelegate {
+    func updateWeatherForLocation(location: String)
+}
+
 class ForecastFrameCell : UICollectionViewCell {
     
     //MARK: IBOutlets
@@ -18,6 +22,12 @@ class ForecastFrameCell : UICollectionViewCell {
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    //MARK: IBActions
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        print("search button tapped")
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -26,9 +36,18 @@ class ForecastFrameCell : UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
+//    private func commonInit() {
+//        self.addSubview(contentView)
+//        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+//    }
+    
+//    private func loadViewFromNib() {
+//        let nib = UINib(nibName: "ForecastFrame", bundle: Bundle.main)
+//        let nibView = nib.instantiate(withOwner: self, options: nil).first as! UIView
+//    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     public func configure(with weather: Weather, atIndex: Int, totalIndices: Int) {
@@ -42,11 +61,9 @@ class ForecastFrameCell : UICollectionViewCell {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE" //full name of week
         let day = formatter.string(from: date)
-        dayLabel.text = day
+        dayLabel.text = day.uppercased()
         
         pageControl.currentPage = atIndex
         pageControl.numberOfPages = totalIndices
-        
     }
-    
 }
